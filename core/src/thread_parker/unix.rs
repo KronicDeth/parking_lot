@@ -5,6 +5,7 @@
 // http://opensource.org/licenses/MIT>, at your option. This file may not be
 // copied, modified, or distributed except according to those terms.
 
+use crate::time::Instant;
 #[cfg(any(target_os = "macos", target_os = "ios"))]
 use core::ptr;
 use core::{
@@ -12,10 +13,7 @@ use core::{
     mem,
 };
 use libc;
-use std::{
-    thread,
-    time::{Duration, Instant},
-};
+use std::{thread, time::Duration};
 
 // x32 Linux uses a non-standard type for tv_nsec in timespec.
 // See https://sourceware.org/bugzilla/show_bug.cgi?id=16437

@@ -6,6 +6,7 @@
 // copied, modified, or distributed except according to those terms.
 
 use crate::thread_parker::{ThreadParker, ThreadParkerT, UnparkHandleT};
+use crate::time::Instant;
 use crate::util::UncheckedOptionExt;
 use crate::word_lock::WordLock;
 use core::{
@@ -14,7 +15,7 @@ use core::{
     sync::atomic::{AtomicPtr, AtomicUsize, Ordering},
 };
 use smallvec::SmallVec;
-use std::time::{Duration, Instant};
+use std::time::Duration;
 
 static NUM_THREADS: AtomicUsize = AtomicUsize::new(0);
 static HASHTABLE: AtomicPtr<HashTable> = AtomicPtr::new(ptr::null_mut());

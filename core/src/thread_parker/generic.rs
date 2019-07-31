@@ -9,7 +9,9 @@
 //! parking facilities available.
 
 use core::sync::atomic::{spin_loop_hint, AtomicBool, Ordering};
-use std::{thread, time::Instant};
+use std::thread;
+
+use crate::time::Instant;
 
 // Helper type for putting a thread to sleep until some other thread wakes it up
 pub struct ThreadParker {

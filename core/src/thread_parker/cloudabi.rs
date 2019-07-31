@@ -5,13 +5,14 @@
 // http://opensource.org/licenses/MIT>, at your option. This file may not be
 // copied, modified, or distributed except according to those terms.
 
+use crate::time::Instant;
 use cloudabi as abi;
 use core::{
     cell::Cell,
     mem,
     sync::atomic::{AtomicU32, Ordering},
 };
-use std::{convert::TryFrom, thread, time::Instant};
+use std::{convert::TryFrom, thread};
 
 extern "C" {
     #[thread_local]

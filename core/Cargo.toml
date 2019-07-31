@@ -32,6 +32,10 @@ cloudabi = "0.0.3"
 winapi = { version = "0.3", features = ["winnt", "ntstatus", "minwindef",
     "winerror", "winbase", "errhandlingapi", "handleapi"] }
 
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+web-sys = { version = ">= 0.3", optional = true }
+
 [features]
 nightly = []
+time_web_sys = ["web-sys/console", "web-sys/Performance", "web-sys/Window"]
 deadlock_detection = ["petgraph", "thread-id", "backtrace"]
